@@ -1,0 +1,123 @@
+.grid{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.delete_item_non_empty{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+.delete_item_non_empty h4 {
+  font-family: Montserrat, sans-serif;
+  color: var(--secondary-purple);
+}
+
+.delete_item_non_empty img {
+  height: 25px;
+  width: 25px;
+  color: var(--secondary-purple);
+  cursor: pointer;
+}
+
+.delete_item_empty {
+  visibility: hidden;
+  
+}
+
+.grid_container{
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 35px;
+  
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+.grid-item {
+  width: 100%;
+  height: auto;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+}
+
+.img_checkbox{
+  top: 10px;
+  left: 10px;
+  opacity: 0;
+  height: 25px;
+  width: 25px;
+  border-color: var(--primary);
+  position: absolute;
+  cursor: pointer;
+  z-index: 200;
+ }
+
+
+.grid-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+  box-shadow: 8px 8px 8px 10px rgba(2, 67, 208, 0.1);
+}
+
+.Card_Image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Hover effect */
+
+.grid-item:hover .img_checkbox, .img_checkbox:checked {
+  opacity: 1;
+}
+
+.img_checkbox:checked .Card_Image{
+  transform: scale(0.5);
+}
+
+/* input[type="checkbox"]:checked + .Card_Image {
+  filter: brightness(70%) grayscale(50%);
+  
+} */
+
+
+.grid-item:hover .Card_Image {
+  filter: brightness(70%) grayscale(50%);
+}
+
+@media screen and (max-width: 1920px) {
+  .productShowcaseCard {
+    margin-left: 3vw;
+  }
+}
+
+@media screen and (max-width: 1408px) {
+  .productShowcaseCard {
+    margin-left: 3vw;
+  }
+}
+
+@media screen and (max-width: 1380px) {
+  .productShowcaseCard {
+    margin-left: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .productShowcaseCard {
+    margin-left: 0rem;
+  }
+}
+
+  
