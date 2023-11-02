@@ -1,9 +1,9 @@
 import React, { useContext, useRef } from "react";
 
-import { ImageContext } from "../context/ImageContext";
+import { ImageContext } from "../../context/ImageContext";
 
 //icon
-import imageIcon from "../assets/icons/image.png";
+import imageIcon from "../../assets/icons/image.png";
 
 import "./Navbar.css";
 

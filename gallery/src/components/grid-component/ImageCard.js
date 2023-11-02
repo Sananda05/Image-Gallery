@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-import featuredIcon from "../assets/icons/star.png";
+import featuredIcon from "../../assets/icons/star.png";
 
 //css
 import "./GridComponent.css";

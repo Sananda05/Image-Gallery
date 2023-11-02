@@ -1,9 +1,9 @@
 import React from "react";
-import GridComponent from "../components/GridComponent";
+import GridComponent from "../components/grid-component/GridComponent";
 
 //css
 import "./Home.css";
-import Navbar from "../components/Navbar";
+import Navbar from "../../src/components/navbar-component/Navbar";
 
 function Home() {
   return (

@@ -8,12 +8,12 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import "./GridComponent.css";
 
 //icon
-import deleteIcon from "../assets/icons/delete.png";
+import deleteIcon from "../../assets/icons/delete.png";
 
 // component
 import ImageCard from "./ImageCard";
-import { ImageContext } from "../context/ImageContext";
-import Spinkit from "../components/Spinkit";
+import { ImageContext } from "../../context/ImageContext";
+import Spinkit from "../spinkit-component/Spinkit";
 
 function GridComponent() {
   const [items, setItems] = useContext(ImageContext);
