@@ -25,17 +25,21 @@ a span{
 }
 
 .navbar_title{
-   color: var(--primary);
+   color: var(--secondary);
    font-family: Montserrat, sans-serif;
 }
 
 .navbar_button{
-    height: 30px;
-    width: 100px;
+    height: 45px;
+    width: 140px;
     background-color: var(--secondary-purple);
     color: var(--white);
     border-radius: 8px;
     border: none;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    visibility: visible;
 }
 
 @media (max-width:1024px){
@@ -49,4 +53,10 @@ a span{
         padding-right: 1rem;
     }
     
+}
+
+@media screen and (max-width: 415px) {
+    .navbar_button{
+        visibility: hidden;
+    }
 }
