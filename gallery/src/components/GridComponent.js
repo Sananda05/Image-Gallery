@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -13,10 +13,12 @@ import deleteIcon from "../assets/icons/delete.png";
 // component
 import ImageCard from "./ImageCard";
 import { ImageContext } from "../context/ImageContext";
+import Spinkit from "../components/Spinkit";
 
 function GridComponent() {
   const [items, setItems] = useContext(ImageContext);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   const imgPickerRef = useRef();
 
@@ -25,6 +27,12 @@ function GridComponent() {
   const ImgHandler = () => {
     imgPickerRef.current.click();
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -88,6 +96,7 @@ function GridComponent() {
 
   return (
     <div className="grid">
+      {isLoading && <Spinkit />}
       {selectedItems.length > 0 ? (
         <div className="delete_item_non_empty">
           <div className="delete_item_text">
