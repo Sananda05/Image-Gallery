@@ -4,7 +4,7 @@ import { useDrag, useDrop } from "react-dnd";
 import featuredIcon from "../../assets/icons/star.png";
 
 //css
-import "./GridComponent.css";
+import "./GalleryComponent.css";
 
 function ImageCard({ index, image, moveImage, value, onChange }) {
   const [{ isDragging }, ref] = useDrag({

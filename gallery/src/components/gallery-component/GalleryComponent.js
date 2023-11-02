@@ -5,7 +5,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 //css file
-import "./GridComponent.css";
+import "./GalleryComponent.css";
 
 //icon
 import deleteIcon from "../../assets/icons/delete.png";
@@ -17,7 +17,7 @@ import Spinkit from "../spinkit-component/Spinkit";
 
 import { ImgHandler, handleImageUpload } from "../../utils/ImagePicker";
 
-function GridComponent() {
+function GalleryComponent() {
   const [items, setItems] = useContext(ImageContext);
   const [selectedItems, setSelectedItems] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -116,4 +116,4 @@ function GridComponent() {
   );
 }
 
-export default GridComponent;
+export default GalleryComponent;

@@ -9,9 +9,10 @@ export const handleImageUpload = (e, setItems, items) => {
     if (items.length === 0) {
       setItems([{ id: 0, name: imageUrl }]);
     } else
-      setItems((prevImages) => [
-        ...prevImages,
-        { id: items.length + 1, name: imageUrl },
-      ]);
+      setItems((prevImages) => {
+        let lastElement = items[items.length - 1];
+
+        return [...prevImages, { id: lastElement.id + 1, name: imageUrl }];
+      });
   }
 };

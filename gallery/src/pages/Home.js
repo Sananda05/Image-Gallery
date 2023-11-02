@@ -1,5 +1,5 @@
 import React from "react";
-import GridComponent from "../components/grid-component/GridComponent";
+import GalleryComponent from "../components/gallery-component/GalleryComponent";
 
 //css
 import "./Home.css";
@@ -12,7 +12,7 @@ function Home() {
         <Navbar />
       </div>
       <div className="body_container">
-        <GridComponent />
+        <GalleryComponent />
       </div>
     </>
   );
