@@ -2,6 +2,8 @@ import React, { useContext, useRef } from "react";
 
 import { ImageContext } from "../../context/ImageContext";
 
+import { ImgHandler, handleImageUpload } from "../../utils/ImagePicker";
+
 //icon
 import imageIcon from "../../assets/icons/image.png";
 
@@ -11,25 +13,6 @@ function Navbar() {
   const imgPickerRef = useRef();
   const [images, setImages] = useContext(ImageContext);
 
-  const ImgHandler = () => {
-    imgPickerRef.current.click();
-  };
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      // Create a URL for the uploaded image
-      const imageUrl = URL.createObjectURL(file);
-      console.log(imageUrl);
-      // Update the images array with the new image
-      setImages((prevImages) => [
-        ...prevImages,
-        { id: images.length + 1, name: imageUrl },
-      ]);
-    }
-  };
-
   return (
     <div className="header">
       <nav className="navbar">
@@ -38,7 +21,9 @@ function Navbar() {
           <input
             type="file"
             ref={imgPickerRef}
-            onChange={handleImageUpload}
+            onChange={(e) => {
+              handleImageUpload(e, setImages, images);
+            }}
             accept=".jpg,.png,.jpeg"
             style={{ display: "none" }}
           />
@@ -49,9 +34,12 @@ function Navbar() {
               flexDirection: "row",
               alignItems: "center",
             }}
+            onClick={() => {
+              ImgHandler(imgPickerRef);
+            }}
           >
             <img src={imageIcon} alt="Add img icon" />
-            <div onClick={ImgHandler}>Add Image</div>
+            <div>Add Image</div>
           </div>
         </div>
       </nav>

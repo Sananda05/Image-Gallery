@@ -3,7 +3,7 @@
     top: 0px;
     overflow: hidden;
     z-index: 1;
-    height: 5rem;
+    height: 8rem;
 }
 
 a span{
@@ -16,7 +16,7 @@ a span{
     align-items: center;
     padding-left: 4rem;
     padding-right: 4rem;
-    height: 4.5rem;
+    height: 7.5rem;
     background-color: var(--white);
     border-bottom-left-radius: 2vw;
     border-bottom-right-radius: 2vw;
@@ -40,6 +40,25 @@ a span{
     gap: 10px;
     cursor: pointer;
     visibility: visible;
+}
+
+.navbar_button:hover{
+    background-color: var(--secondary);
+}
+
+@media (max-width:1540px){
+    .header{
+        height: 5rem;
+    }
+
+    .navbar{
+        height: 4.5rem;
+    }
+
+    .navbar_button{
+        height: 45px;
+    }
+    
 }
 
 @media (max-width:1024px){

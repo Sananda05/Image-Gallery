@@ -15,6 +15,8 @@ import ImageCard from "./ImageCard";
 import { ImageContext } from "../../context/ImageContext";
 import Spinkit from "../spinkit-component/Spinkit";
 
+import { ImgHandler, handleImageUpload } from "../../utils/ImagePicker";
+
 function GridComponent() {
   const [items, setItems] = useContext(ImageContext);
   const [selectedItems, setSelectedItems] = useState([]);
@@ -22,67 +24,34 @@ function GridComponent() {
 
   const imgPickerRef = useRef();
 
-  // add image with fab button
-
-  const ImgHandler = () => {
-    imgPickerRef.current.click();
-  };
-
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1500);
   }, []);
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-
-    if (file) {
-      // Create a URL for the uploaded image
-      const imageUrl = URL.createObjectURL(file);
-      console.log(imageUrl);
-      // Update the images array with the new image
-      setItems((prevImages) => [
-        ...prevImages,
-        { id: items.length + 1, name: imageUrl },
-      ]);
-    }
-  };
-
   //delete image
   const handleDeleteItem = () => {
-    console.log(selectedItems);
-
     let filterItems = items.filter((item) => {
-      console.log(item.id);
       return !selectedItems.includes(item.id);
     });
-
-    console.log(filterItems);
 
     setItems([...filterItems]);
 
     setSelectedItems([]);
-    console.log(items);
   };
 
   // selected images
-
   const handleSelect = (e) => {
     const { value } = e.target;
-    console.log(value);
 
     setSelectedItems((prevSelectedItems) => {
       if (prevSelectedItems.includes(Number(value))) {
-        // If already selected, remove from the array
         return prevSelectedItems.filter((id) => id !== Number(value));
       } else {
-        // If not selected, add to the array
         return [...prevSelectedItems, Number(value)];
       }
     });
-
-    console.log(selectedItems);
   };
 
   //drag and drop
@@ -131,11 +100,16 @@ function GridComponent() {
       <input
         type="file"
         ref={imgPickerRef}
-        onChange={handleImageUpload}
+        onChange={(e) => handleImageUpload(e, setItems, items)}
         accept=".jpg,.png,.jpeg"
         style={{ display: "none" }}
       />
-      <button className="fab" onClick={ImgHandler}>
+      <button
+        className="fab"
+        onClick={() => {
+          ImgHandler(imgPickerRef);
+        }}
+      >
         +
       </button>
     </div>
